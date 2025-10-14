@@ -1,4 +1,5 @@
 ﻿using EFSample.Domain.Entities;
+using EFSample.Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace EFSample.Infrastructure
@@ -16,6 +17,14 @@ namespace EFSample.Infrastructure
                 builder.UseSqlServer("Server=localhost;Database=EFMoviesDb;User Id=sa;Password=bitspa.1;TrustServerCertificate=true");
 
             base.OnConfiguring(builder);
+
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.SeedData();
         }
     }
 }

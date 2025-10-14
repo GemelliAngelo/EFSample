@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFSample.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251014135638_Initial")]
+    [Migration("20251014152017_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -43,6 +43,28 @@ namespace EFSample.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Comedy"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Action"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Fantasy"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Adventure"
+                        });
                 });
 
             modelBuilder.Entity("EFSample.Domain.Entities.Movie", b =>
@@ -107,6 +129,28 @@ namespace EFSample.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MovieTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Film"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "TV-show"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Documentary"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Reality"
+                        });
                 });
 
             modelBuilder.Entity("GenreMovie", b =>
