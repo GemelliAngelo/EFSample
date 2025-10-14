@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EFSample.Domain.Entities
 {
@@ -8,6 +6,7 @@ namespace EFSample.Domain.Entities
     {
         public int Id { get; set; }
         public required string Title { get; set; }
+
         [Column(TypeName = "ntext")]
         public string? Description { get; set; }
         public MovieDetails? MovieDetails { get; set; }
