@@ -5,7 +5,6 @@ namespace EFSample.Domain.Entities
 {
     public class MovieDetails
     {
-        [Key]
         [ForeignKey(nameof(MovieId))]
         public int MovieId { get; set; }
         public Movie? Movie { get; set; }
