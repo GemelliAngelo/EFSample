@@ -8,9 +8,9 @@ namespace EFSample.App
         static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.Console()
-                .CreateLogger();
+               .MinimumLevel.Debug()
+               .WriteTo.Console()
+               .CreateLogger();
 
             try
             {
