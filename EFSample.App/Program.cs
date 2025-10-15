@@ -75,6 +75,7 @@ namespace EFSample.App
 
                             Console.WriteLine("How many genres: ");
                             var genresCount = Convert.ToInt16(Console.ReadLine());
+                            ICollection<int> genreIds = [];
                             ICollection<Genre> genresList = [];
 
                             Console.WriteLine("Available genres:");
@@ -86,10 +87,12 @@ namespace EFSample.App
                             for (int i = 0; i < genresCount; i++)
                             {
                                 Console.Write("Genre Id: ");
-                                var genreId = Convert.ToInt16(Console.ReadLine());
-                                var genre = context.Genres.Where(g => g.Id == genreId).ToList();
-                                genresList.Add(genre.FirstOrDefault());
+                                genreIds.Add(Convert.ToInt32(Console.ReadLine()));
                             }
+
+                            genresList = [.. context.Genres.Where(g => genreIds.Contains(g.Id))];
+
+                            Console.WriteLine(JsonSerializer.Serialize(genresList));
 
                             var movie = new Movie()
                             {
